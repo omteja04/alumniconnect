@@ -1,0 +1,102 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode colors using the specified palette */
+    --background: 199 41% 82%; /* #C7D2D9 - light gray */
+    --foreground: 222 93% 9%; /* #010326 - dark navy */
+
+    --card: 199 41% 85%;
+    --card-foreground: 222 93% 9%;
+
+    --popover: 199 41% 85%;
+    --popover-foreground: 222 93% 9%;
+
+    --primary: 198 57% 41%; /* #2D83A6 - accent blue */
+    --primary-foreground: 199 41% 82%;
+
+    --secondary: 79 82% 73%; /* #A1D929 - green secondary */
+    --secondary-foreground: 222 93% 9%;
+
+    --muted: 199 41% 78%;
+    --muted-foreground: 222 47% 31%;
+
+    --accent: 81 95% 59%; /* #B2F227 - bright green */
+    --accent-foreground: 222 93% 9%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 199 31% 75%;
+    --input: 199 31% 75%;
+    --ring: 198 57% 41%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark mode colors using the specified palette */
+    --background: 222 93% 9%; /* #010326 - dark navy */
+    --foreground: 199 41% 82%; /* #C7D2D9 - light gray */
+
+    --card: 222 93% 12%;
+    --card-foreground: 199 41% 82%;
+
+    --popover: 222 93% 12%;
+    --popover-foreground: 199 41% 82%;
+
+    --primary: 198 57% 41%; /* #2D83A6 - accent blue */
+    --primary-foreground: 199 41% 82%;
+
+    --secondary: 79 82% 73%; /* #A1D929 - green secondary */
+    --secondary-foreground: 222 93% 9%;
+
+    --muted: 222 93% 15%;
+    --muted-foreground: 199 31% 65%;
+
+    --accent: 81 95% 59%; /* #B2F227 - bright green */
+    --accent-foreground: 222 93% 9%;
+
+    --destructive: 0 62% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 93% 15%;
+    --input: 222 93% 15%;
+    --ring: 198 57% 41%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #2D83A6, #B2F227);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #010326, #2D83A6);
+  }
+  
+  .bg-gradient-secondary {
+    background: linear-gradient(135deg, #B2F227, #A1D929);
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+}
