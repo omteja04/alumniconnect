@@ -426,7 +426,7 @@ export const StudentDashboard: React.FC = () => {
                                                                     method: 'POST',
                                                                     headers: {
                                                                         'Content-Type': 'application/json',
-                                                                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODVjNDI5MjI0ZGM5N2ZkNmQ1ODEwMDAiLCJpYXQiOjE3NTA5MTQ1MTMsImV4cCI6MTc1MTAwMDkxM30.c1YCsSagnCwA17AMkUsCo4AIHTMTfwr4XaKJ-6kMY64'
+                                                                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODVjNDI5MjI0ZGM5N2ZkNmQ1ODEwMDAiLCJpYXQiOjE3NTEwMjEzNzUsImV4cCI6MTc1MTEwNzc3NX0.yuoftzoOw-uGkwpZyViDZiq6e-qjnkCf8oYniN038Lk'
                                                                     },
                                                                     body: JSON.stringify({
                                                                         studentName: "Omteja Yallapragada", // From Supabase auth
