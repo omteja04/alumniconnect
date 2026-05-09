@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture - Smart Alumni Connect & Job Referral System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        .hover-scale { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-scale:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .mermaid {
+            background-color: transparent !important;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+    <!-- Header -->
+    <header class="pt-20 pb-16 text-center animate__animated animate__fadeIn">
+        <div class="inline-block p-3 rounded-full bg-slate-800/50 mb-6 border border-slate-700">
+            <svg class="w-8 h-8 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold mb-4 gradient-text tracking-tight">Smart Alumni Connect</h1>
+        <h2 class="text-2xl md:text-3xl font-light text-slate-300 tracking-wide">System Architecture & Job Referral Platform</h2>
+        <p class="mt-6 text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">Comprehensive architectural documentation for a scalable, serverless platform connecting students and alumni through intelligent NLP matching and automated workflows.</p>
+    </header>
+
+    <main class="container mx-auto px-4 max-w-6xl space-y-10">
+        <!-- System Architecture Overview -->
+        <section class="glass-panel p-8 md:p-10 fade-in-up delay-1 hover-scale">
+            <h3 class="text-3xl font-semibold mb-8 flex items-center text-sky-400">
+                <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                Architectural Overview
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50 transition duration-300 hover:bg-slate-800/60">
+                    <h4 class="text-xl font-bold text-indigo-300 mb-4 flex items-center">
+                        <span class="bg-indigo-500/20 p-2 rounded-lg mr-3"><svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></span>
+                        1. Frontend Layer
+                    </h4>
+                    <ul class="list-none text-slate-300 space-y-3">
+                        <li class="flex items-start"><span class="text-indigo-400 mr-2">▹</span> <strong>Framework:</strong> React.js</li>
+                        <li class="flex items-start"><span class="text-indigo-400 mr-2">▹</span> <strong>Styling:</strong> Tailwind CSS</li>
+                        <li class="flex items-start"><span class="text-indigo-400 mr-2">▹</span> <strong>Hosting:</strong> Vercel (Edge Deployed)</li>
+                        <li class="flex items-start"><span class="text-indigo-400 mr-2">▹</span> <strong>Student Portal:</strong> Dashboard, Upload, Jobs, Mentorship, Readiness Score, Notifications</li>
+                        <li class="flex items-start"><span class="text-indigo-400 mr-2">▹</span> <strong>Alumni Portal:</strong> Dashboard, Requests, ACKs, Post Jobs, Notifications</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50 transition duration-300 hover:bg-slate-800/60">
+                    <h4 class="text-xl font-bold text-emerald-300 mb-4 flex items-center">
+                        <span class="bg-emerald-500/20 p-2 rounded-lg mr-3"><svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg></span>
+                        2. Backend Layer
+                    </h4>
+                    <ul class="list-none text-slate-300 space-y-3">
+                        <li class="flex items-start"><span class="text-emerald-400 mr-2">▹</span> <strong>Architecture:</strong> Serverless</li>
+                        <li class="flex items-start"><span class="text-emerald-400 mr-2">▹</span> <strong>Runtime:</strong> Node.js & Express.js</li>
+                        <li class="flex items-start"><span class="text-emerald-400 mr-2">▹</span> <strong>Compute:</strong> AWS Lambda</li>
+                        <li class="flex items-start"><span class="text-emerald-400 mr-2">▹</span> <strong>Gateway:</strong> Amazon API Gateway</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50 transition duration-300 hover:bg-slate-800/60">
+                    <h4 class="text-xl font-bold text-amber-300 mb-4 flex items-center">
+                        <span class="bg-amber-500/20 p-2 rounded-lg mr-3"><svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg></span>
+                        3. Database & Storage
+                    </h4>
+                    <ul class="list-none text-slate-300 space-y-3">
+                        <li class="flex items-start"><span class="text-amber-400 mr-2">▹</span> <strong>Document DB:</strong> MongoDB (Profiles, Jobs)</li>
+                        <li class="flex items-start"><span class="text-amber-400 mr-2">▹</span> <strong>Transactional:</strong> AWS DynamoDB / RDS</li>
+                        <li class="flex items-start"><span class="text-amber-400 mr-2">▹</span> <strong>Object Storage:</strong> AWS S3 (Resumes, Avatars)</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50 transition duration-300 hover:bg-slate-800/60">
+                    <h4 class="text-xl font-bold text-pink-300 mb-4 flex items-center">
+                        <span class="bg-pink-500/20 p-2 rounded-lg mr-3"><svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></span>
+                        4. Core Integrations
+                    </h4>
+                    <ul class="list-none text-slate-300 space-y-3">
+                        <li class="flex items-start"><span class="text-pink-400 mr-2">▹</span> <strong>ITSM:</strong> ServiceNow (Workflows)</li>
+                        <li class="flex items-start"><span class="text-pink-400 mr-2">▹</span> <strong>ML Engine:</strong> NLP Resume Parsing & Scoring</li>
+                        <li class="flex items-start"><span class="text-pink-400 mr-2">▹</span> <strong>Matching:</strong> Readiness Score to Job Postings</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflows & DevOps -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div class="glass-panel p-8 md:p-10 fade-in-up delay-2 hover-scale flex flex-col">
+                <h3 class="text-2xl font-semibold mb-6 flex items-center text-teal-400">
+                    <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    User Workflows (Data Flow)
+                </h3>
+                <div class="space-y-6 flex-grow">
+                    <div class="flex">
+                        <div class="flex-shrink-0 mr-4 flex flex-col items-center">
+                            <div class="w-8 h-8 rounded-full bg-teal-500/20 border border-teal-500 flex items-center justify-center text-teal-400 font-bold">1</div>
+                            <div class="w-px h-full bg-slate-700 my-2"></div>
+                        </div>
+                        <div class="pb-2">
+                            <h5 class="text-white font-semibold text-lg">Student Action</h5>
+                            <p class="text-slate-400 mt-1">Uploads resume (to S3) and requests mentorship or a job referral.</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-shrink-0 mr-4 flex flex-col items-center">
+                            <div class="w-8 h-8 rounded-full bg-teal-500/20 border border-teal-500 flex items-center justify-center text-teal-400 font-bold">2</div>
+                            <div class="w-px h-full bg-slate-700 my-2"></div>
+                        </div>
+                        <div class="pb-2">
+                            <h5 class="text-white font-semibold text-lg">ML Processing</h5>
+                            <p class="text-slate-400 mt-1">System parses resume data via NLP, calculates "Placement Readiness Score", and maps recommended jobs.</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-shrink-0 mr-4 flex flex-col items-center">
+                            <div class="w-8 h-8 rounded-full bg-teal-500/20 border border-teal-500 flex items-center justify-center text-teal-400 font-bold">3</div>
+                            <div class="w-px h-full bg-slate-700 my-2"></div>
+                        </div>
+                        <div class="pb-2">
+                            <h5 class="text-white font-semibold text-lg">Alumni Review</h5>
+                            <p class="text-slate-400 mt-1">Receives requests in the Alumni Portal and triggers "Mentorship ACK" or "Referral ACK".</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-shrink-0 mr-4 flex flex-col items-center">
+                            <div class="w-8 h-8 rounded-full bg-teal-500/20 border border-teal-500 flex items-center justify-center text-teal-400 font-bold">4</div>
+                        </div>
+                        <div class="pb-2">
+                            <h5 class="text-white font-semibold text-lg">ServiceNow Sync</h5>
+                            <p class="text-slate-400 mt-1">Referral pipelines to ServiceNow for automated tracking, ticketing, and real-time status updates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-panel p-8 md:p-10 fade-in-up delay-3 hover-scale flex flex-col">
+                <h3 class="text-2xl font-semibold mb-6 flex items-center text-orange-400">
+                    <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    DevOps & Infrastructure
+                </h3>
+                <div class="grid grid-cols-1 gap-4 flex-grow">
+                    <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-700/50 flex items-center">
+                        <div class="w-12 h-12 rounded-lg bg-slate-900 flex items-center justify-center mr-4 shadow-inner">
+                            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <div>
+                            <h5 class="text-white font-medium">Version Control</h5>
+                            <p class="text-slate-400 text-sm">Git & GitHub</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-700/50 flex items-center">
+                        <div class="w-12 h-12 rounded-lg bg-slate-900 flex items-center justify-center mr-4 shadow-inner">
+                            <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h5 class="text-white font-medium">CI/CD Pipelines</h5>
+                            <p class="text-slate-400 text-sm">GitHub Actions</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-700/50 flex items-center">
+                        <div class="w-12 h-12 rounded-lg bg-slate-900 flex items-center justify-center mr-4 shadow-inner">
+                            <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        </div>
+                        <div>
+                            <h5 class="text-white font-medium">API Testing</h5>
+                            <p class="text-slate-400 text-sm">Postman Collections</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-700/50 flex items-center">
+                        <div class="w-12 h-12 rounded-lg bg-slate-900 flex items-center justify-center mr-4 shadow-inner">
+                            <svg class="w-7 h-7 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                        </div>
+                        <div>
+                            <h5 class="text-white font-medium">DNS & Routing</h5>
+                            <p class="text-slate-400 text-sm">AWS Route 53</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Design -->
+        <section class="glass-panel p-8 md:p-10 fade-in-up delay-4 hover-scale">
+            <h3 class="text-2xl font-semibold mb-6 flex items-center text-purple-400">
+                <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                API Design Considerations
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-300">
+                <div class="space-y-4">
+                    <div class="bg-slate-800/30 p-5 rounded-lg border border-slate-700/30">
+                        <h5 class="text-white font-medium mb-2 flex items-center"><span class="w-2 h-2 rounded-full bg-purple-500 mr-2"></span> RESTful Endpoints</h5>
+                        <p class="text-sm">Resource-oriented routing mapping cleanly to entities (e.g., <code class="bg-slate-900 px-1 py-0.5 rounded text-purple-300">/api/v1/students</code>, <code class="bg-slate-900 px-1 py-0.5 rounded text-purple-300">/api/v1/jobs</code>).</p>
+                    </div>
+                    <div class="bg-slate-800/30 p-5 rounded-lg border border-slate-700/30">
+                        <h5 class="text-white font-medium mb-2 flex items-center"><span class="w-2 h-2 rounded-full bg-purple-500 mr-2"></span> Stateless Authentication</h5>
+                        <p class="text-sm">JWT (JSON Web Tokens) used exclusively, validated securely at the AWS API Gateway layer via Custom Authorizers.</p>
+                    </div>
+                    <div class="bg-slate-800/30 p-5 rounded-lg border border-slate-700/30">
+                        <h5 class="text-white font-medium mb-2 flex items-center"><span class="w-2 h-2 rounded-full bg-purple-500 mr-2"></span> Pagination & Filtering</h5>
+                        <p class="text-sm">Cursor or offset-based pagination essential for Job Boards to minimize DynamoDB/MongoDB read units and improve response times.</p>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-slate-800/30 p-5 rounded-lg border border-slate-700/30">
+                        <h5 class="text-white font-medium mb-2 flex items-center"><span class="w-2 h-2 rounded-full bg-purple-500 mr-2"></span> Asynchronous Processing</h5>
+                        <p class="text-sm">Heavy operations (ML Parsing, ServiceNow syncing) return <code class="bg-slate-900 px-1 py-0.5 rounded text-purple-300">202 Accepted</code> and process via AWS SQS/SNS to prevent blocking.</p>
+                    </div>
+                    <div class="bg-slate-800/30 p-5 rounded-lg border border-slate-700/30">
+                        <h5 class="text-white font-medium mb-2 flex items-center"><span class="w-2 h-2 rounded-full bg-purple-500 mr-2"></span> Idempotency</h5>
+                        <p class="text-sm">Critical for state-changing operations like ACK/NACK to ensure network retries don't duplicate ServiceNow tickets.</p>
+                    </div>
+                    <div class="bg-slate-800/30 p-5 rounded-lg border border-slate-700/30">
+                        <h5 class="text-white font-medium mb-2 flex items-center"><span class="w-2 h-2 rounded-full bg-purple-500 mr-2"></span> Multipart Uploads</h5>
+                        <p class="text-sm">Bypassing heavy backend processing by using Pre-signed S3 URLs generated by API Gateway for secure, direct-to-bucket uploads.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diagram -->
+        <section class="glass-panel p-8 md:p-10 fade-in-up delay-4">
+            <h3 class="text-2xl font-semibold mb-8 flex items-center text-pink-400">
+                <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+                Data Flow & System Architecture (High-Level)
+            </h3>
+            <div class="bg-slate-900/80 rounded-xl p-2 md:p-6 overflow-hidden border border-slate-700 shadow-inner flex justify-center w-full overflow-x-auto">
+                <pre class="mermaid text-center">
+graph TD
+    %% Define Styles
+    classDef default fill:#1e293b,stroke:#475569,stroke-width:1px,color:#f8fafc;
+    classDef frontend fill:#1e40af,stroke:#3b82f6,stroke-width:2px,color:#fff;
+    classDef aws fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#fff;
+    classDef db fill:#065f46,stroke:#10b981,stroke-width:2px,color:#fff;
+    classDef ml fill:#5b21b6,stroke:#8b5cf6,stroke-width:2px,color:#fff;
+    classDef ext fill:#991b1b,stroke:#ef4444,stroke-width:2px,color:#fff;
+    
+    %% Users
+    Student([🎓 Student])
+    Alumni([💼 Alumni])
+    
+    %% Frontend Layer
+    subgraph Frontend["Frontend Layer (Vercel)"]
+        RP[React.js App & Tailwind CSS]
+    end
+    
+    %% AWS Edge & API
+    subgraph Edge["AWS Edge & Gateway"]
+        R53[Amazon Route 53 DNS]
+        CF[Amazon CloudFront CDN]
+        APIG[Amazon API Gateway]
+    end
+    
+    %% Backend Layer
+    subgraph Backend["Backend Layer (Serverless)"]
+        NodeExp[Node.js + Express.js Lambda]
+    end
+    
+    %% ML & Engine
+    subgraph Engine["Intelligent Engines"]
+        ML[ML / NLP Engine<br/>Resume Parsing & Scoring]
+    end
+    
+    %% Integrations
+    subgraph Integration["Integrations"]
+        SNOW[ServiceNow<br/>Workflow Automation]
+    end
+    
+    %% Data & Storage
+    subgraph Storage["Data & Storage Layer"]
+        Mongo[(MongoDB<br/>User Data & Jobs)]
+        DDB[(DynamoDB / RDS<br/>Transactions & ACKs)]
+        S3[(AWS S3<br/>Resumes & Media)]
+    end
+    
+    %% Connections
+    Student <-->|HTTPS| RP
+    Alumni <-->|HTTPS| RP
+    
+    RP -->|DNS/Routing| R53
+    R53 --> CF
+    CF --> APIG
+    APIG -->|Triggers| NodeExp
+    
+    %% Backend workflows
+    NodeExp -.->|Read/Write Profile| Mongo
+    NodeExp -.->|Store State/ACKs| DDB
+    NodeExp -->|Upload via Presigned URL| S3
+    
+    NodeExp -->|Async Event Trigger| ML
+    ML -->|Fetch Resume| S3
+    ML -.->|Write Readiness Score| Mongo
+    
+    NodeExp -->|API Sync| SNOW
+    SNOW -.->|Webhook Status Update| NodeExp
+    
+    %% Apply Styles
+    class Student,Alumni frontend;
+    class RP frontend;
+    class R53,CF,APIG,NodeExp aws;
+    class Mongo,DDB,S3 db;
+    class ML ml;
+    class SNOW ext;
+                </pre>
+            </div>
+            <p class="text-center text-slate-500 text-sm mt-4">Interactive diagram powered by Mermaid.js</p>
+        </section>
+    </main>
+
+    <footer class="text-center text-slate-500 text-sm mt-16 pb-8 border-t border-slate-800/50 pt-8 max-w-4xl mx-auto">
+        <p>&copy; 2026 Smart Alumni Connect & Job Referral System.</p>
+        <p class="mt-2 text-slate-600">Architected for scalability, performance, and seamless user experiences.</p>
+    </footer>
+</body>
+</html>

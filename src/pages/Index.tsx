@@ -63,7 +63,15 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
+      <div className="bg-red-500/20 border-b border-red-500/30 text-red-400 p-3 text-center w-full z-50">
+        <p className="font-medium text-sm md:text-base">
+          ⚠️ Notice: This project is currently out of service. 
+          <a href="./architecture.html" className="font-bold underline ml-2 hover:text-red-300 transition-colors">
+            Click here to check the system architecture
+          </a>
+        </p>
+      </div>
       <Header onLoginClick={handleLogin} onSignupClick={handleSignup} />
       
       {!showRoleSelection ? (
